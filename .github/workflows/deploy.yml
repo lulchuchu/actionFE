@@ -1,0 +1,32 @@
+name: CICD
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v3
+      - name: Login to docker hub
+        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }} 
+      - name: Build docker image
+        run: docker build -t tienanhknock/action-fe .
+      - name: Publish image to docker hub
+        run: docker push tienanhknock/action-fe
+        
+  deploy:
+    needs: build
+    runs-on: self-hosted
+    steps:
+      - name: Pull image from docker hub
+        run: docker pull tienanhknock/action-fe
+      - name: Delete old container
+        run: docker rm -f lulfe
+      - name: Pull image from docker hub
+        run: docker pull tienanhknock/action-fe
+      - name: Run docker container
+        run: docker run --name lulfe -d -p 3000:80 --rm -e REACT_APP_BE_HOST=13.236.148.98 tienanhknock/lulfrontend
+        

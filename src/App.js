@@ -18,7 +18,7 @@ function App() {
                 const url =
                     process.env.REACT_APP_BE_HOST === "localhost"
                         ? "localhost"
-                        : "3.107.50.218";
+                        : "13.236.148.98";
                 const response = await fetch(`http://${url}/goals`);
 
                 const resData = await response.json();
@@ -50,7 +50,7 @@ function App() {
             const url =
                 process.env.REACT_APP_BE_HOST === "localhost"
                     ? "localhost"
-                    : "3.107.50.218";
+                    : "13.236.148.98";
             const response = await fetch(`http://${url}/goals`, {
                 method: "POST",
                 body: JSON.stringify({
@@ -94,7 +94,7 @@ function App() {
             const url =
                 process.env.REACT_APP_BE_HOST === "localhost"
                     ? "localhost"
-                    : "3.107.50.218";
+                    : "13.236.148.98";
             const response = await fetch(`http://${url}/goals/` + goalId, {
                 method: "DELETE",
             });
