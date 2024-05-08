@@ -13,7 +13,7 @@ jobs:
       - name: Login to docker hub
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }} 
       - name: Build docker image
-        run: docker build -t tienanhknock/action-fe .
+        run: docker build -f Dockerfile.prod -t tienanhknock/action-fe .
       - name: Publish image to docker hub
         run: docker push tienanhknock/action-fe:latest
         
