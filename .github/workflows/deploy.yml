@@ -28,5 +28,5 @@ jobs:
       - name: Pull image from docker hub
         run: docker pull tienanhknock/action-fe
       - name: Run docker container
-        run: docker run --name lulfe -d -p 3000:80 --rm -e REACT_APP_BE_HOST=13.236.148.98 tienanhknock/lulfrontend
+        run: docker run --name lulfe -d -p 3000:80 --rm -e REACT_APP_BE_HOST=13.236.148.98 tienanhknock/action-fe
         
