@@ -65,7 +65,7 @@ function App() {
             console.log({ resData });
 
             if (!response.ok) {
-                throw new Error(resData.message || "Adding the goal failed.");
+                throw new Error(resData.message || "Adding the goal failed..");
             }
 
             setLoadedGoals((prevGoals) => {

@@ -15,14 +15,14 @@ jobs:
       - name: Build docker image
         run: docker build -t tienanhknock/action-fe .
       - name: Publish image to docker hub
-        run: docker push tienanhknock/action-fe
+        run: docker push tienanhknock/action-fe:latest
         
   deploy:
     needs: build
     runs-on: self-hosted
     steps:
       - name: Pull image from docker hub
-        run: docker pull tienanhknock/action-fe
+        run: docker pull tienanhknock/action-fe:latest
       - name: Delete old container
         run: docker rm -f lulfe
       - name: Pull image from docker hub
